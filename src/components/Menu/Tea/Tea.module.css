@@ -1,0 +1,58 @@
+.Tea{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 20rem;
+    border-bottom: 1px #e01616 solid;
+
+}
+
+.ImgBox{
+    width:280rem;
+}
+
+img{
+    width:100%;
+    
+}
+
+.DescWrap{
+    width: 470rem;
+    padding-left: 20rem;
+}
+.Title{
+    font-weight: normal;
+    font-size: 18px;
+    margin: 0;
+    background-color: #bfa;
+}
+
+.Desc{
+    margin: 0;
+    background-color: orange;
+    font-size: 12px;
+    color: #696666;
+    padding-right: 10rem;
+}
+
+.PriceWrap{
+    margin-top: 40rem;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.Price{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.Price::before{
+    content: '$';
+    font-size: 15px;    
+    margin-right: 5rem;
+}
+
+.Number{
+    font-size: 13px;
+}
