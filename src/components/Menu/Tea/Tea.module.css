@@ -1,6 +1,6 @@
 .Tea{
     display: flex;
-    justify-content:space-between;
+    /* justify-content:space-between; */
     align-items: center;
     padding: 20rem;
     border-bottom: 1px #e01616 solid;
@@ -17,7 +17,7 @@ img{
 }
 
 .DescWrap{
-    /* width: 470rem; */
+    width: 470rem;
     padding-left: 20rem;
 }
 .Title{
@@ -36,7 +36,7 @@ img{
 .PriceWrap{
     margin-top: 40rem;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     padding-right: 40rem;
 
 }

@@ -2,20 +2,18 @@ import React from "react";
 import classes from "./Tea.module.css";
 import Counter from "../../UI/Counter";
 
-const Tea = () => {
+const Tea = ({ tea }) => {
+  // console.log(props);
   return (
     <div className={classes.Tea}>
       <div className={classes.ImgBox}>
-        <img src="/img/teas/1.jpg" alt="green" />
+        <img src={tea.img} alt="green" />
       </div>
       <div className={classes.DescWrap}>
-        <h2 className={classes.Title}>Green Tea</h2>
-        <p className={classes.Desc}>
-          Best Grean Tea Ever! Best Grean Tea Ever! Best Grean Tea Ever! Best
-          Grean Tea Ever!
-        </p>
+        <h2 className={classes.Title}>{tea.title}</h2>
+        <p className={classes.Desc}>{tea.desc}</p>
         <div className={classes.PriceWrap}>
-          <span className={classes.Price}>12</span>
+          <span className={classes.Price}>{tea.price}</span>
           <Counter amount={1} />
         </div>
       </div>

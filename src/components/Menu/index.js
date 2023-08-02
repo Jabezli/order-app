@@ -2,16 +2,12 @@ import React from "react";
 import Tea from "./Tea";
 import classes from "./Menu.module.css";
 
-const Menu = () => {
+const Menu = (props) => {
   return (
     <div className={classes.Menu}>
-      <Tea />
-      <Tea />
-      <Tea />
-      <Tea />
-      <Tea />
-      <Tea />
-      <Tea />
+      {props.menuData.map((item) => (
+        <Tea key={item.id} tea={item} />
+      ))}
     </div>
   );
 };
