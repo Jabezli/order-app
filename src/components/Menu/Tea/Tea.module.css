@@ -17,19 +17,17 @@ img{
 }
 
 .DescWrap{
-    width: 470rem;
+    /* width: 470rem; */
     padding-left: 20rem;
 }
 .Title{
     font-weight: normal;
     font-size: 18px;
     margin: 0;
-    background-color: #bfa;
 }
 
 .Desc{
     margin: 0;
-    background-color: orange;
     font-size: 12px;
     color: #696666;
     padding-right: 10rem;
@@ -39,6 +37,7 @@ img{
     margin-top: 40rem;
     display: flex;
     justify-content: space-between;
+    padding-right: 40rem;
 
 }
 
@@ -50,9 +49,5 @@ img{
 .Price::before{
     content: '$';
     font-size: 15px;    
-    margin-right: 5rem;
-}
-
-.Number{
-    font-size: 13px;
+    padding-right: 5rem;
 }

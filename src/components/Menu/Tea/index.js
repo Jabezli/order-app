@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./Tea.module.css";
+import Counter from "../../UI/Counter";
 
 const Tea = () => {
   return (
@@ -15,7 +16,7 @@ const Tea = () => {
         </p>
         <div className={classes.PriceWrap}>
           <span className={classes.Price}>12</span>
-          <div className={classes.Number}>number</div>
+          <Counter amount={1} />
         </div>
       </div>
     </div>
