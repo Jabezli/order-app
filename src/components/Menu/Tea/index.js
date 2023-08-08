@@ -14,7 +14,7 @@ const Tea = ({ tea }) => {
         <p className={classes.Desc}>{tea.desc}</p>
         <div className={classes.PriceWrap}>
           <span className={classes.Price}>{tea.price}</span>
-          <Counter amount={1} />
+          <Counter tea={tea} />
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Menu from "./components/Menu";
+import CartContext from "./store/cart-context";
 
 const Menu_Data = [
   {
@@ -56,10 +57,56 @@ const Menu_Data = [
 
 function App() {
   const [menuData, setMenuData] = useState(Menu_Data);
+
+  // for the cart, couple things need to be considered
+  // 1. items in the cart -> array
+  // 2. total amount of all the items
+  // 3. total price
+  const [cartData, setCartData] = useState({
+    items: [],
+    totalAmount: 0,
+    totalPrice: 0,
+  });
+
+  //add Tea to cart
+  const addItem = (tea) => {
+    // tea is what we are adding into cart
+    const newCart = { ...cartData };
+
+    if (newCart.items.indexOf(tea) === -1) {
+      newCart.items.push(tea);
+      tea.amount = 1;
+    } else {
+      tea.amount += 1;
+    }
+
+    newCart.totalAmount += 1;
+    newCart.totalPrice += tea.price;
+
+    setCartData(newCart);
+  };
+
+  //sub Tea from cart
+  const removeItem = (tea) => {
+    const newCart = { ...cartData };
+
+    tea.amount -= 1;
+
+    if (tea.amount === 0) {
+      newCart.items.splice(newCart.items.indexOf(tea), 1);
+    }
+
+    newCart.totalAmount -= 1;
+    newCart.totalPrice -= tea.price;
+
+    setCartData(newCart);
+  };
   return (
-    <div>
-      <Menu menuData={menuData} />
-    </div>
+    <CartContext.Provider value={{ ...cartData, addItem, removeItem }}>
+      <div>
+        <Menu menuData={menuData} />
+      </div>
+    </CartContext.Provider>
   );
 }
 
