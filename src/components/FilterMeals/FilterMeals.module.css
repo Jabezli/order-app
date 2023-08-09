@@ -8,17 +8,18 @@
     left:0;
     right:0;
     z-index:999;
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 2rem solid #f2f2f2;
 }
 
 .SearchInput{
     width: 650rem;
     height:70rem;
     border: none;
-    border-radius:20px;
+    border-radius:40rem;
     background-color: #f2f2f2;
     padding-left: 60rem;
     outline:none;
+    font-size: 30rem;
 }
 
 .InputWrapper{
@@ -27,7 +28,7 @@
     align-items: center;
 }
 .SearchIcon{
-    font-size: 18px;
+    font-size: 40rem;
     position:absolute;
     left:10rem;
     color: #aaa;
