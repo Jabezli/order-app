@@ -68,7 +68,25 @@ function App() {
     totalAmount: 0,
     totalPrice: 0,
   });
+  //function for filtering teas in the menu
+  const filterHandler = (keyword) => {
+    //keyword parameter will be sanitized to lower case and remove all the spaces using "replace".
+    const sanitizedKeyword = keyword.toLowerCase().replace(/\s/g, "");
 
+    const newMenuData = Menu_Data.filter((item) =>
+      item.title.toLowerCase().replace(/\s/g, "").includes(sanitizedKeyword)
+    );
+
+    setMenuData(newMenuData);
+  };
+  // const filterHandler = (keyword) => {
+  //   //filter all the titles and see if the keyword exists using indexoF method. If indexOf is -1, it means the keyword is not in any title.
+  //   //the data filtered out will only contain index !== -1
+  //   const newMenuData = Menu_Data.filter(
+  //     (item) => item.title.indexOf(keyword) !== -1
+  //   );
+  //   setMenuData(newMenuData);
+  // };
   //add Tea to cart
   const addItem = (tea) => {
     // tea is what we are adding into cart
@@ -105,7 +123,7 @@ function App() {
   return (
     <CartContext.Provider value={{ ...cartData, addItem, removeItem }}>
       <div>
-        <FilterMeals />
+        <FilterMeals onFilter={filterHandler} />
         <Menu menuData={menuData} />
       </div>
     </CartContext.Provider>
