@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Menu from "./components/Menu";
+import FilterMeals from "./components/FilterMeals";
 import CartContext from "./store/cart-context";
 
 const Menu_Data = [
@@ -104,6 +105,7 @@ function App() {
   return (
     <CartContext.Provider value={{ ...cartData, addItem, removeItem }}>
       <div>
+        <FilterMeals />
         <Menu menuData={menuData} />
       </div>
     </CartContext.Provider>
