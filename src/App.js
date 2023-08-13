@@ -3,6 +3,7 @@ import "./App.css";
 import Menu from "./components/Menu";
 import FilterMeals from "./components/FilterMeals";
 import CartContext from "./store/cart-context";
+import Cart from "./components/Cart";
 
 const Menu_Data = [
   {
@@ -73,20 +74,14 @@ function App() {
     //keyword parameter will be sanitized to lower case and remove all the spaces using "replace".
     const sanitizedKeyword = keyword.toLowerCase().replace(/\s/g, "");
 
+    //title of each item will be sanitized to lower case and remove all space to filter with the sanitized keyword
     const newMenuData = Menu_Data.filter((item) =>
       item.title.toLowerCase().replace(/\s/g, "").includes(sanitizedKeyword)
     );
 
     setMenuData(newMenuData);
   };
-  // const filterHandler = (keyword) => {
-  //   //filter all the titles and see if the keyword exists using indexoF method. If indexOf is -1, it means the keyword is not in any title.
-  //   //the data filtered out will only contain index !== -1
-  //   const newMenuData = Menu_Data.filter(
-  //     (item) => item.title.indexOf(keyword) !== -1
-  //   );
-  //   setMenuData(newMenuData);
-  // };
+
   //add Tea to cart
   const addItem = (tea) => {
     // tea is what we are adding into cart
@@ -125,6 +120,7 @@ function App() {
       <div>
         <FilterMeals onFilter={filterHandler} />
         <Menu menuData={menuData} />
+        <Cart />
       </div>
     </CartContext.Provider>
   );
