@@ -7,7 +7,7 @@ const Tea = ({ tea }) => {
   return (
     <div className={classes.Tea}>
       <div className={classes.ImgBox}>
-        <img src={tea.img} alt="green" />
+        <img src={tea.img} alt="" />
       </div>
       <div className={classes.DescWrap}>
         <h2 className={classes.Title}>{tea.title}</h2>

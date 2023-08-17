@@ -10,7 +10,7 @@
     right: 0;
     margin:auto;
     border-radius: 40rem;
-    z-index: 9999;
+    z-index: 9998;
 }
 
 .Icon{
@@ -61,4 +61,9 @@
     border-radius: 40rem;
     font-size: 32rem;
 
+}
+
+.DisabledButton{
+    background-color: #777;
+    color:#ccc;
 }

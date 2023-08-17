@@ -9,8 +9,6 @@ const Counter = (props) => {
 
   const addButtonHanlder = () => {
     ctx.addItem(props.tea);
-    console.log(ctx);
-    console.log(props);
   };
   const subButtonHanlder = () => {
     ctx.removeItem(props.tea);

@@ -4,6 +4,7 @@ import Menu from "./components/Menu";
 import FilterMeals from "./components/FilterMeals";
 import CartContext from "./store/cart-context";
 import Cart from "./components/Cart";
+import Confirm from "./components/UI/Confirm";
 
 const Menu_Data = [
   {
@@ -115,8 +116,39 @@ function App() {
 
     setCartData(newCart);
   };
+
+  //to be consistent, clearCart function will be declared in app.js instead of cartDetail's index.js
+  const clearCart = () => {
+    //try to make it not that DRY later.
+    const newCart = { ...cartData };
+    newCart.items.forEach((item) => {
+      delete item.amount;
+    });
+    newCart.items = [];
+    newCart.totalAmount = 0;
+    newCart.totalPrice = 0;
+    setCartData(newCart);
+
+    // const newItems = cartData.items.forEach((item) => {
+    //   delete item.amount;
+    // });
+
+    // const newItems = cartData.items.map((item) => ({
+    //   ...item,
+    //   amount: 0,
+    // }));
+    // setCartData({
+    //   ...cartData,
+    //   items: newItems,
+    //   totalAmount: 0,
+    //   totalPrice: 0,
+    // });
+  };
+  console.log("updated amount is:", cartData);
   return (
-    <CartContext.Provider value={{ ...cartData, addItem, removeItem }}>
+    <CartContext.Provider
+      value={{ ...cartData, addItem, removeItem, clearCart }}
+    >
       <div>
         <FilterMeals onFilter={filterHandler} />
         <Menu menuData={menuData} />
