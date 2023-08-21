@@ -27,7 +27,7 @@ const CartDetails = () => {
   return (
     // backdrop is the wrapper of the detail.
 
-    <Backdrop onClick={cancelHandler}>
+    <Backdrop>
       {showConfirm && (
         <Confirm
           confirmText={`Do you want to delete all the items?`}

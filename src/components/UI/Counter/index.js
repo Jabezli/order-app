@@ -7,10 +7,12 @@ import CartContext from "../../../store/cart-context";
 const Counter = (props) => {
   const ctx = useContext(CartContext);
 
-  const addButtonHanlder = () => {
+  const addButtonHanlder = (e) => {
+    e.stopPropagation();
     ctx.addItem(props.tea);
   };
-  const subButtonHanlder = () => {
+  const subButtonHanlder = (e) => {
+    e.stopPropagation();
     ctx.removeItem(props.tea);
   };
   return (
