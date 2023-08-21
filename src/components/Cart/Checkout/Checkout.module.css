@@ -13,3 +13,52 @@
     color: #000;
     font-size: 36rem;
 }
+
+.MealsDesc{
+    background-color: #fff;
+    border-radius: 40rem;
+    padding: 0 20rem;
+}
+.Header{
+    display: flex;
+    border-bottom: 2rem solid #f2f2f2;
+    height: 80rem;
+    align-items: center;
+    font-size: 20rem;
+}
+
+.Footer{
+    position: relative;
+    height: 120rem;
+    border-top: 2rem dashed #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-weight: bold;
+    font-size: 30rem;
+}
+
+.Footer::before,
+.Footer::after{
+    content: "";
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    background-color: #eee;
+    border-radius: 50%;
+    top:-10rem;
+    left: -30rem;
+}
+
+.Footer::after{
+    left:auto;
+    right: -30rem;
+}
+
+.TotalPrice::before{
+    content: 'Total Price $';
+    font-weight: normal;
+    font-size: 24rem;
+    margin-right: 10rem;
+    
+}

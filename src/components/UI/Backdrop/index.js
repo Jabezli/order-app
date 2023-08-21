@@ -7,7 +7,7 @@ const Backdrop = (props) => {
   console.log(props);
   return ReactDOM.createPortal(
     //"...props" will ensure all the props related to this backdrop will be applied to this div
-    <div className={`${classes.Backdrop} $(props.className)`}>
+    <div {...props} className={`${classes.Backdrop} $(props.className)`}>
       {props.children}
     </div>,
     backdropRoot

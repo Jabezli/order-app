@@ -16,8 +16,8 @@ const Confirm = (props) => {
             Cancel
           </button>
           <button
-            onClick={(e) => {
-              props.onYes(e);
+            onClick={() => {
+              props.onYes();
             }}
             className={classes.Yes}
           >
