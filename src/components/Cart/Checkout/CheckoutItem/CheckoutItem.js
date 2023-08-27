@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./CheckoutItem.module.css";
-import Counter from "../../../UI/Counter/index";
+import Counter from "../../../UI/Counter/Counter";
 
 const CheckoutItem = (props) => {
   console.log("tea props" + props);

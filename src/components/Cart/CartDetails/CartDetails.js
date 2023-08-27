@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
-import Backdrop from "../../UI/Backdrop";
+import Backdrop from "../../UI/Backdrop/Backdrop.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import classes from "./CartDetails.module.css";
 import CartContext from "../../../store/cart-context";
-import Tea from "../../Menu/Tea";
-import Confirm from "../../UI/Confirm";
+import Tea from "../../Menu/Tea/Tea";
+import Confirm from "../../UI/Confirm/Confirm.js";
 const CartDetails = () => {
   const ctx = useContext(CartContext);
 

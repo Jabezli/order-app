@@ -1,5 +1,5 @@
 import React from "react";
-import Tea from "./Tea";
+import Tea from "./Tea/Tea.js";
 import classes from "./Menu.module.css";
 
 const Menu = (props) => {

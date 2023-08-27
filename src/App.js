@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./App.css";
-import Menu from "./components/Menu";
-import FilterMeals from "./components/FilterMeals";
+import Menu from "./components/Menu/Menu.js";
+import FilterMeals from "./components/FilterMeals/FilterMeals.js";
 import CartContext from "./store/cart-context";
-import Cart from "./components/Cart";
-import Confirm from "./components/UI/Confirm";
+import Cart from "./components/Cart/Cart.js";
+import Confirm from "./components/UI/Confirm/Confirm";
 
 const Menu_Data = [
   {

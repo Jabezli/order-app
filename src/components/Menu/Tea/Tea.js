@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Tea.module.css";
-import Counter from "../../UI/Counter";
+import Counter from "../../UI/Counter/Counter";
 
 const Tea = ({ tea }) => {
   // console.log(props);

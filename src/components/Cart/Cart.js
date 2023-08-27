@@ -2,8 +2,8 @@ import { React, useContext, useState } from "react";
 import classes from "./Cart.module.css";
 import iconImg from "../../asset/bag.png";
 import CartContext from "../../store/cart-context";
-import CartDetails from "./CartDetails";
-import Checkout from "./Checkout";
+import CartDetails from "./CartDetails/CartDetails.js";
+import Checkout from "./Checkout/Checkout.js";
 
 const Cart = () => {
   const ctx = useContext(CartContext);
