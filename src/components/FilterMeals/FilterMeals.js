@@ -4,10 +4,12 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import classes from "./FilterMeals.module.css";
 
 const FilterMeals = ({ onFilter }) => {
+  const [keyword, setKeyword] = useState("");
+
   const inputChangeHandler = (e) => {
-    console.log(e.target.value);
-    const keyword = e.target.value.trim().toLowerCase();
-    onFilter(keyword);
+    setKeyword(e.target.value.trim().toLowerCase());
+    // const keyword = e.target.value.trim().toLowerCase();
+    // // onFilter(keyword);
   };
   return (
     <div className={classes.FilterMeals}>
@@ -17,6 +19,7 @@ const FilterMeals = ({ onFilter }) => {
           className={classes.SearchInput}
           type="text"
           placeholder={"Search for Teas!"}
+          value={keyword}
         />
         <FontAwesomeIcon className={classes.SearchIcon} icon={faSearch} />
       </div>
