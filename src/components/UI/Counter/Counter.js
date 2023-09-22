@@ -9,11 +9,11 @@ const Counter = (props) => {
 
   const addButtonHanlder = (e) => {
     e.stopPropagation();
-    ctx.addItem(props.tea);
+    ctx.cartDispatch({ type: "ADD_ITEM", tea: props.tea });
   };
   const subButtonHanlder = (e) => {
     e.stopPropagation();
-    ctx.removeItem(props.tea);
+    ctx.cartDispatch({ type: "REMOVE_ITEM", tea: props.tea });
   };
   return (
     <div className={classes.Counter}>

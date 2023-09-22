@@ -3,7 +3,7 @@ import Backdrop from "../../UI/Backdrop/Backdrop.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import classes from "./CartDetails.module.css";
-import CartContext from "../../../store/cart-context";
+import CartContext from "../../../store/cart-context.js";
 import Tea from "../../Menu/Tea/Tea";
 import Confirm from "../../UI/Confirm/Confirm.js";
 const CartDetails = () => {
@@ -22,7 +22,7 @@ const CartDetails = () => {
   };
 
   const yesHandler = () => {
-    ctx.clearCart();
+    ctx.cartDispatch({ type: "CLEAR_CART" });
   };
   return (
     // backdrop is the wrapper of the detail.

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import "./App.css";
 import Menu from "./components/Menu/Menu.js";
 import FilterMeals from "./components/FilterMeals/FilterMeals.js";
@@ -58,6 +58,45 @@ const Menu_Data = [
   },
 ];
 
+const cartReducer = (state, action) => {
+  const newCart = { ...state };
+  switch (action.type) {
+    default:
+      return state;
+    case "ADD_ITEM":
+      if (newCart.items.indexOf(action.tea) === -1) {
+        newCart.items.push(action.tea);
+        action.tea.amount = 1;
+      } else {
+        action.tea.amount += 1;
+      }
+
+      newCart.totalAmount += 1;
+      newCart.totalPrice += action.tea.price;
+      return newCart;
+
+    case "REMOVE_ITEM":
+      action.tea.amount -= 1;
+
+      if (action.tea.amount === 0) {
+        newCart.items.splice(newCart.items.indexOf(action.tea), 1);
+      }
+
+      newCart.totalAmount -= 1;
+      newCart.totalPrice -= action.tea.price;
+      return newCart;
+
+    case "CLEAR_CART":
+      newCart.items.forEach((item) => {
+        delete item.amount;
+      });
+      newCart.items = [];
+      newCart.totalAmount = 0;
+      newCart.totalPrice = 0;
+      return newCart;
+  }
+};
+
 function App() {
   const [menuData, setMenuData] = useState(Menu_Data);
 
@@ -65,7 +104,8 @@ function App() {
   // 1. items in the cart -> array
   // 2. total amount of all the items
   // 3. total price
-  const [cartData, setCartData] = useState({
+
+  const [cartData, cartDispatch] = useReducer(cartReducer, {
     items: [],
     totalAmount: 0,
     totalPrice: 0,
@@ -83,72 +123,8 @@ function App() {
     setMenuData(newMenuData);
   };
 
-  //add Tea to cart
-  const addItem = (tea) => {
-    // tea is what we are adding into cart
-    const newCart = { ...cartData };
-
-    if (newCart.items.indexOf(tea) === -1) {
-      newCart.items.push(tea);
-      tea.amount = 1;
-    } else {
-      tea.amount += 1;
-    }
-
-    newCart.totalAmount += 1;
-    newCart.totalPrice += tea.price;
-
-    setCartData(newCart);
-  };
-
-  //sub Tea from cart
-  const removeItem = (tea) => {
-    const newCart = { ...cartData };
-
-    tea.amount -= 1;
-
-    if (tea.amount === 0) {
-      newCart.items.splice(newCart.items.indexOf(tea), 1);
-    }
-
-    newCart.totalAmount -= 1;
-    newCart.totalPrice -= tea.price;
-
-    setCartData(newCart);
-  };
-
-  //to be consistent, clearCart function will be declared in app.js instead of cartDetail's index.js
-  const clearCart = () => {
-    //try to make it not that DRY later.
-    const newCart = { ...cartData };
-    newCart.items.forEach((item) => {
-      delete item.amount;
-    });
-    newCart.items = [];
-    newCart.totalAmount = 0;
-    newCart.totalPrice = 0;
-    setCartData(newCart);
-
-    // const newItems = cartData.items.forEach((item) => {
-    //   delete item.amount;
-    // });
-
-    // const newItems = cartData.items.map((item) => ({
-    //   ...item,
-    //   amount: 0,
-    // }));
-    // setCartData({
-    //   ...cartData,
-    //   items: newItems,
-    //   totalAmount: 0,
-    //   totalPrice: 0,
-    // });
-  };
-  console.log("updated amount is:", cartData);
   return (
-    <CartContext.Provider
-      value={{ ...cartData, addItem, removeItem, clearCart }}
-    >
+    <CartContext.Provider value={{ ...cartData, cartDispatch }}>
       <div>
         <FilterMeals onFilter={filterHandler} />
         <Menu menuData={menuData} />
